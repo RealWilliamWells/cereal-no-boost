@@ -11,9 +11,9 @@ if(APPLE)
     option(SKIP_PORTABILITY_TEST "Skip portability (32 bit) tests" ON)
 endif()
 
-option(BUILD_DOC "Build documentation" ON)
-option(BUILD_SANDBOX "Build sandbox examples" ON)
-option(SKIP_PERFORMANCE_COMPARISON "Skip building performance sandbox comparison (requires boost)" OFF)
+option(BUILD_DOC "Build documentation" OFF)
+option(BUILD_SANDBOX "Build sandbox examples" OFF)
+option(SKIP_PERFORMANCE_COMPARISON "Skip building performance sandbox comparison (requires boost)" ON)
 
 # TODO: should not be needed! CK
 if(NOT CMAKE_VERSION VERSION_LESS 3.0) # installing cereal requires INTERFACE lib
@@ -106,10 +106,10 @@ if(JUST_INSTALL_CEREAL)
 endif()
 
 
-if(NOT SKIP_PERFORMANCE_COMPARISON)
-    # Boost serialization for performance sandbox
-    find_package(Boost REQUIRED COMPONENTS serialization)
-endif()
+#if(NOT SKIP_PERFORMANCE_COMPARISON)
+#    # Boost serialization for performance sandbox
+#    find_package(Boost REQUIRED COMPONENTS serialization)
+#endif()
 
 
 option(BUILD_TESTS "Build tests" ${CEREAL_MASTER_PROJECT})
